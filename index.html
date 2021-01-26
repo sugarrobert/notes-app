@@ -7,35 +7,46 @@
     <title>Notes App</title>
   </head>
   <body>
-    <header>
-      <h1>Notes App</h1>
-      <p>Take notes and never forget</p>
+    <header class="header-container">
+      <div class="header-wrapper">
+        <div>
+          <h1>Notes App</h1>
+          <p>Take notes and never forget</p>
+        </div>
+        <input
+          type="text"
+          class="filter-notes"
+          placeholder="Filter Notes"
+          id="filter-notes"
+        />
+      </div>
     </header>
 
-    <main>
+    <main class="main-container">
       <div class="container">
-        <div class="filter-container">
-          <input type="text" class="filter-notes" placeholder="Filter Notes" />
-          <select name="sort" id="sort-notes" class="sort-notes">
-            <option value="last-edited">Sort by last edited</option>
-            <option value="recently-created">Sort by recently created</option>
-            <option value="alphabetically">Sort alphabetically</option>
-          </select>
-        </div>
-        <div>
+        <div class="wrapper">
+          <div class="filter-container">
+            <button class="create-note" id="create-note">Create Note</button>
+            <select name="sort" id="sort-notes" class="sort-notes">
+              <option value="last-edited">Sort by last edited</option>
+              <option value="recently-created">Sort by recently created</option>
+              <option value="alphabetically">Sort alphabetically</option>
+            </select>
+          </div>
+
           <div class="notes-list">
-            <div class="note">
+            <a href="edit.html" class="note">
               <h2>Title</h2>
               <span>last-edited 14 minute ago</span>
-            </div>
-            <div class="note">
+            </a>
+            <a href="edit.html" class="note">
               <h2>Title</h2>
               <span>last-edited 14 minute ago</span>
-            </div>
-            <div class="note">
+            </a>
+            <a href="edit.html" class="note">
               <h2>Title</h2>
               <span>last-edited 14 minute ago</span>
-            </div>
+            </a>
           </div>
         </div>
       </div>
