@@ -13,7 +13,6 @@
           <h1>Notes App</h1>
           <p>Take notes and never forget</p>
         </div>
-        <input type="text" class="filter-notes" placeholder="Filter Notes" />
       </div>
     </header>
 
@@ -21,8 +20,8 @@
       <div class="container">
         <div class="wrapper">
           <div class="filter-container">
-            <button id="cancel-changes">Cancel</button>
-            <button id="delete-note">Delete Note</button>
+            <button class="btn" id="cancel-changes">Cancel</button>
+            <button class="btn" id="delete-note">Delete Note</button>
           </div>
 
           <div class="container">
@@ -39,13 +38,15 @@
               rows="10"
               placeholder="Enter note text"
             ></textarea>
-            <button id="save-changes" class="save-changes">Save</button>
+            <button id="save-changes" class="btn save-changes">Save</button>
           </div>
           <div class="notes-list"></div>
         </div>
       </div>
     </main>
 
-    <script src="./script/script.js"></script>
+    <script src="./script/note.js"></script>
+    <script src="./script/ui.js"></script>
+    <script src="./script/note-edit.js"></script>
   </body>
 </html>

@@ -26,7 +26,9 @@
       <div class="container">
         <div class="wrapper">
           <div class="filter-container">
-            <button class="create-note" id="create-note">Create Note</button>
+            <button class="btn create-note" id="create-note">
+              Create Note
+            </button>
             <select name="sort" id="sort-notes" class="sort-notes">
               <option value="last-edited">Sort by last edited</option>
               <option value="recently-created">Sort by recently created</option>
@@ -37,6 +39,17 @@
           <div class="notes-list">
             <a href="edit.html" class="note">
               <h2>Title</h2>
+              <div class="note-text" id="note-text">
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Beatae odio, deleniti optio repellat quibusdam sed,
+                  dignissimos nostrum ipsa at tenetur tempora quisquam
+                  consequuntur voluptates quam? Temporibus reiciendis omnis
+                  nesciunt adipisci.
+                </p>
+                <button class="btn">Edit</button>
+                <button class="btn">Delete</button>
+              </div>
               <span>last-edited 14 minute ago</span>
             </a>
             <a href="edit.html" class="note">
@@ -52,6 +65,8 @@
       </div>
     </main>
 
-    <script src="./script/script.js"></script>
+    <script src="./script/note.js"></script>
+    <script src="./script/ui.js"></script>
+    <script src="./script/note-app.js"></script>
   </body>
 </html>
