@@ -37,6 +37,16 @@ input:focus {
   outline: none;
 }
 
+.btn {
+  font-size: 16px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background: $color-white;
+  color: $color-text;
+}
+
 .header-container {
   color: $color-white;
   background: $color-green;
@@ -83,7 +93,6 @@ input:focus {
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
 
-  button,
   select {
     font-size: 16px;
     padding: 5px 10px;
@@ -115,12 +124,29 @@ input:focus {
   border-radius: 5px;
 
   h2 {
+    font-family: $font-header;
     font-size: 24px;
   }
 
   span {
     font-size: 13px;
+    font-family: $font-text;
     font-style: italic;
+  }
+}
+
+.note-text {
+  display: block;
+  padding: 10px 0;
+
+  p {
+    font-family: $font-text;
+    font-size: 15px;
+    padding: 0 5px 10px;
+  }
+
+  button {
+    margin-right: 10px;
   }
 }
 
@@ -190,6 +216,12 @@ input:focus {
     }
   }
 
+  .note-text {
+    p {
+      font-size: 13px;
+    }
+  }
+
   .note-title {
     font-size: 15px;
   }
@@ -220,10 +252,16 @@ input:focus {
 
   .note {
     h2 {
-      font-size: 20px;
+      font-size: 18px;
     }
 
     span {
+      font-size: 8px;
+    }
+  }
+
+  .note-text {
+    p {
       font-size: 10px;
     }
   }
