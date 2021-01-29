@@ -5,11 +5,11 @@ class UI {
     noteEl.className = 'note';
 
     noteEl.innerHTML = `
-      <h2>${note.title}</h2>
+      <h2 class="toggle">${note.title}</h2>
       <div class="note-text" id="note-text">
         <p>${note.body}</p>
-        <button class="btn">Edit</button>
-        <button class="btn">Delete</button>
+        <button data-id="${note.id}" class="btn edit-button">Edit</button>
+        <button data-id="${note.id}" class="btn delete-button">Delete</button>
       </div>
       <span>${this.generateLastEdited(note.changed)}</span>
     `;
@@ -33,7 +33,7 @@ class UI {
     } else if (minutes > 0) {
       text = `last edited ${minutes} minutes ago`;
     } else {
-      text = `last edited ${seconds} seconds ago`;
+      text = `last edited a few seconds ago`;
     }
 
     return text;
