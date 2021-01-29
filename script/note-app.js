@@ -22,7 +22,9 @@ document.querySelector('.notes-list').addEventListener('click', (e) => {
 
   //event for edit note
   if (e.target.classList.contains('edit-button')) {
-    console.log('edit');
+    id = e.target.dataset.id;
+
+    location.assign(`./edit.html?id=${id}`);
   }
 
   //event for delete note from UI and LS
