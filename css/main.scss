@@ -126,6 +126,8 @@ input:focus {
   h2 {
     font-family: $font-header;
     font-size: 24px;
+    cursor: pointer;
+    overflow-wrap: break-word;
   }
 
   span {
@@ -136,13 +138,14 @@ input:focus {
 }
 
 .note-text {
-  display: block;
+  display: none;
   padding: 10px 0;
 
   p {
     font-family: $font-text;
     font-size: 15px;
     padding: 0 5px 10px;
+    overflow-wrap: break-word;
   }
 
   button {
@@ -173,13 +176,17 @@ input:focus {
 
 .save-changes {
   width: 100%;
-  background: $color-white;
   border: 1px solid $color-text;
   border-radius: 5px;
-  color: $color-text;
-  font-size: 16px;
   padding: 10px;
-  cursor: pointer;
+}
+
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
 }
 
 @media (max-width: 600px) {
@@ -232,6 +239,7 @@ input:focus {
 
   .save-changes {
     font-size: 14px;
+    padding: 5px;
   }
 }
 
