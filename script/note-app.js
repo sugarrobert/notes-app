@@ -1,17 +1,38 @@
-document.querySelector('#create-note').addEventListener('click', () => {
+//load all notes from LS on page load
+document.addEventListener('DOMContentLoaded', () => {
   const notesList = document.querySelector('.notes-list');
 
-  const ui = new UI();
+  Store.displayNotes(notesList);
+});
 
-  let title = 'Sisanje';
-  let body = 'Cetvrtak u 13 h';
-  let created = Date.now();
-  let changed = Date.now();
-  let id = 1;
+//redirect on edit page for create new note
+document.querySelector('#create-note').addEventListener('click', () => {
+  location.assign('./edit.html');
+});
 
-  const note = new Note(title, body, created, changed, id);
+//event on container of all notes
+document.querySelector('.notes-list').addEventListener('click', (e) => {
+  e.preventDefault();
 
-  ui.generateNoteDOM(notesList, note);
+  //event for toggle body visibility of note
+  if (e.target.classList.contains('toggle')) {
+    //show text of note
+    e.target.nextElementSibling.classList.toggle('show');
+  }
 
-  // location.assign('./edit.html');
+  //event for edit note
+  if (e.target.classList.contains('edit-button')) {
+    console.log('edit');
+  }
+
+  //event for delete note from UI and LS
+  if (e.target.classList.contains('delete-button')) {
+    id = e.target.dataset.id;
+
+    //delete note from UI
+    e.target.parentElement.parentElement.remove();
+
+    //delete note from LS
+    Store.removeNote(id);
+  }
 });
