@@ -2,7 +2,23 @@
 document.addEventListener('DOMContentLoaded', () => {
   const notesList = document.querySelector('.notes-list');
   const notes = Store.getNotes();
-  Store.displayNotes(notesList, notes);
+  if (notes.length === 0) {
+    console.log('helo');
+    //create div
+    const noteEl = document.createElement('div');
+
+    //add class to div
+    noteEl.className = 'note';
+
+    //inner html for div
+    noteEl.innerHTML = `
+      <div class="alert">No notes to show </div>
+    `;
+    //append div to element
+    notesList.appendChild(noteEl);
+  } else {
+    Store.displayNotes(notesList, notes);
+  }
 });
 
 //redirect on edit page for create new note
