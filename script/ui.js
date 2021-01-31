@@ -45,4 +45,24 @@ class UI {
 
     return text;
   }
+
+  //alert
+  showAlert(message, className) {
+    //create div
+    const div = document.createElement('div');
+    //Add classes
+    div.className = `alert ${className}`;
+    //Add Text
+    div.appendChild(document.createTextNode(message));
+    //get parent
+    const container = document.querySelector('.container');
+    const wrapper = document.querySelector('.wrapper');
+    //insert alert
+    container.insertBefore(div, wrapper);
+
+    //timeout after 3 sec
+    setTimeout(function () {
+      document.querySelector('.alert').remove();
+    }, 3000);
+  }
 }
