@@ -12,8 +12,8 @@ class Store {
   }
 
   //display all notes from LS
-  static displayNotes(element) {
-    const notes = Store.getNotes();
+  static displayNotes(element, notes) {
+    //const notes = Store.getNotes();
 
     notes.forEach(function (note) {
       const ui = new UI();
