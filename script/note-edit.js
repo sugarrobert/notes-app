@@ -46,58 +46,61 @@ document.querySelector('#delete-note').addEventListener('click', () => {
 
 //event listener for save button
 document.querySelector('#save-changes').addEventListener('click', () => {
-  const queryString = window.location.search;
-  //check for id in url, if id is in url replace old value with new
-  if (queryString !== '') {
-    //get id from url
-    const urlParams = new URLSearchParams(queryString);
-    const urlId = urlParams.get('id');
+  const noteTitle = document.querySelector('#note-title');
+  const noteBody = document.querySelector('#note-body');
 
-    //load notes from LS
-    const notes = Store.getNotes();
-
-    const noteTitle = document.querySelector('#note-title');
-    const noteBody = document.querySelector('#note-body');
-
-    //loop throught notes array and replace value of edited note
-    const mapedNotes = notes.map((item) => {
-      if (item.id === urlId) {
-        item = {
-          ...item,
-          title: noteTitle.value,
-          body: noteBody.value,
-          changed: Date.now(),
-        };
-      }
-      return item;
-    });
-
-    //save new array with new value in LS
-    localStorage.setItem('notes', JSON.stringify(mapedNotes));
-
-    //return on index page
-    location.assign('./index.html');
+  //Validate
+  if (noteTitle.value === '' || noteBody.value === '') {
+    const ui = new UI();
+    ui.showAlert('Please fill in all fields!', 'red');
   } else {
-    //if there is no id in url save new note
-    const noteTitle = document.querySelector('#note-title');
-    const noteBody = document.querySelector('#note-body');
+    const queryString = window.location.search;
+    //check for id in url, if id is in url replace old value with new
+    if (queryString !== '') {
+      //get id from url
+      const urlParams = new URLSearchParams(queryString);
+      const urlId = urlParams.get('id');
 
-    //Instantiate note
-    const note = new Note();
+      //load notes from LS
+      const notes = Store.getNotes();
 
-    let title = noteTitle.value;
-    let body = noteBody.value;
-    let created = Date.now();
-    let changed = Date.now();
-    let id = note.generateID();
+      //loop throught notes array and replace value of edited note
+      const mapedNotes = notes.map((item) => {
+        if (item.id === urlId) {
+          item = {
+            ...item,
+            title: noteTitle.value,
+            body: noteBody.value,
+            changed: Date.now(),
+          };
+        }
+        return item;
+      });
 
-    //Instantiate new note
-    const newNote = new Note(title, body, created, changed, id);
+      //save new array with new value in LS
+      localStorage.setItem('notes', JSON.stringify(mapedNotes));
 
-    //add note to LS
-    Store.addNote(newNote);
+      //return on index page
+      location.assign('./index.html');
+    } else {
+      //if there is no id in url save new note
+      //Instantiate note
+      const note = new Note();
 
-    //return on index page
-    location.assign('./index.html');
+      let title = noteTitle.value;
+      let body = noteBody.value;
+      let created = Date.now();
+      let changed = Date.now();
+      let id = note.generateID();
+
+      //Instantiate new note
+      const newNote = new Note(title, body, created, changed, id);
+
+      //add note to LS
+      Store.addNote(newNote);
+
+      //return on index page
+      location.assign('./index.html');
+    }
   }
 });
